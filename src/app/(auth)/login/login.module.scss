@@ -1,0 +1,249 @@
+.loginCard {
+  background-color: rgba(255, 255, 255, 0.15);
+  /* Milky white transparent */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 2rem;
+  /* Large rounded corners */
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  /* Stronger white border */
+  overflow: hidden;
+  padding: 3rem 2.5rem;
+  /* More padding */
+  width: 100%;
+}
+
+.header {
+  margin-bottom: 2.5rem;
+  text-align: center;
+
+  h2 {
+    font-size: 2.5rem;
+    /* Larger Title */
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 0px;
+    letter-spacing: 1px;
+  }
+
+  p {
+    display: none;
+    /* Hide summary text to match minimalist image */
+  }
+}
+
+.errorContainer {
+  background-color: rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding: 0.75rem;
+
+  p {
+    font-size: 0.875rem;
+    color: #ffcaca;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  /* More spacing between inputs */
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #f3f4f6;
+    margin-left: 0;
+  }
+}
+
+.inputWrapper {
+  position: relative;
+
+  /* Hide the left icons to match the clean underline style */
+  .iconLeft {
+    display: none;
+  }
+
+  input {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 0;
+    /* Padding only top/bottom */
+    padding-right: 2rem;
+    /* Space for password eye */
+
+    background-color: transparent !important;
+    /* Transparent bg */
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+    /* Bottom border only */
+    border-radius: 0;
+    /* No radius */
+    color: white;
+    font-size: 1.125rem;
+
+    transition: all 0.2s ease-in-out;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    &:focus {
+      outline: none;
+      background-color: transparent !important;
+      border-bottom-color: #ffffff;
+      /* Bright white on focus */
+      box-shadow: none;
+      /* No ring */
+    }
+
+    /* Remove autocomplete bg color in Chrome */
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: #ffffff;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+  }
+
+  .togglePassword {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    padding-right: 0;
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.15s;
+
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.5rem;
+
+  .remember {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+
+    input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      height: 1.125rem;
+      width: 1.125rem;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 2px;
+      cursor: pointer;
+      position: relative;
+
+      &:checked {
+        background-color: white;
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='black' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+      }
+    }
+
+    span {
+      font-size: 0.95rem;
+      color: #ffffff;
+      font-weight: 400;
+    }
+  }
+
+  .forgotLink {
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: #ffffff;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.submitBtn {
+  width: 100%;
+  margin-top: 2rem;
+  /* More space */
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  background: #ffffff;
+  /* Solid White */
+  color: #000000;
+  /* Black text */
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 2rem;
+  /* Very rounded pill shape */
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  transform: translateY(0);
+
+  &:hover:not(:disabled) {
+    background: #f3f4f6;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .spinner {
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-top-color: black;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: 0.5rem;
+  }
+
+  .arrowIcon {
+    display: none;
+    /* Hide arrow for this specific clean style, or keep it */
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

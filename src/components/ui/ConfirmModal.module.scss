@@ -1,0 +1,243 @@
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    animation: fadeIn 0.2s ease;
+    padding: 16px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.modal {
+    position: relative;
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow:
+        0 20px 60px -10px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(0, 0, 0, 0.1);
+    animation: slideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    &:focus {
+        outline: none;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.closeButton {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    padding: 8px;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: rgba(0, 0, 0, 0.5);
+
+    &:hover {
+        background: rgba(0, 0, 0, 0.05);
+        color: rgba(0, 0, 0, 0.8);
+    }
+
+    &:focus-visible {
+        outline: 2px solid #3b82f6;
+        outline-offset: 2px;
+    }
+}
+
+.closeIcon {
+    width: 20px;
+    height: 20px;
+}
+
+.iconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    animation: scaleIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s backwards;
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.icon {
+    width: 32px;
+    height: 32px;
+}
+
+.title {
+    margin: 0 0 12px;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    color: #111827;
+}
+
+.message {
+    margin: 0 0 24px;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: center;
+    color: #6b7280;
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+}
+
+.cancelButton,
+.confirmButton {
+    flex: 1;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    &:focus-visible {
+        outline: 2px solid currentColor;
+        outline-offset: 2px;
+    }
+
+    &:active {
+        transform: scale(0.98);
+    }
+}
+
+.cancelButton {
+    background: #f3f4f6;
+    color: #374151;
+
+    &:hover {
+        background: #e5e7eb;
+        transform: translateY(-1px);
+    }
+}
+
+.confirmButton {
+    color: white;
+}
+
+// Variants
+.danger {
+    .iconWrapper {
+        background: #fee2e2;
+    }
+
+    .icon {
+        color: #ef4444;
+    }
+
+    .confirmButton {
+        background: #ef4444;
+
+        &:hover {
+            background: #dc2626;
+            transform: translateY(-1px);
+            box-shadow: 0 10px 20px -5px rgba(239, 68, 68, 0.4);
+        }
+    }
+}
+
+.warning {
+    .iconWrapper {
+        background: #fef3c7;
+    }
+
+    .icon {
+        color: #f59e0b;
+    }
+
+    .confirmButton {
+        background: #f59e0b;
+
+        &:hover {
+            background: #d97706;
+            transform: translateY(-1px);
+            box-shadow: 0 10px 20px -5px rgba(245, 158, 11, 0.4);
+        }
+    }
+}
+
+.info {
+    .iconWrapper {
+        background: #dbeafe;
+    }
+
+    .icon {
+        color: #3b82f6;
+    }
+
+    .confirmButton {
+        background: #3b82f6;
+
+        &:hover {
+            background: #2563eb;
+            transform: translateY(-1px);
+            box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.4);
+        }
+    }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+
+    .overlay,
+    .modal,
+    .iconWrapper {
+        animation: none;
+    }
+
+    .cancelButton,
+    .confirmButton {
+
+        &:hover,
+        &:active {
+            transform: none;
+        }
+    }
+}

@@ -1,0 +1,196 @@
+.sidebar {
+    background: linear-gradient(to bottom right, #111827, #1f2937, #111827);
+    color: white;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    position: relative;
+
+    &.collapsed {
+        width: 5rem;
+    }
+
+    &.expanded {
+        width: 16rem;
+    }
+}
+
+.decorativeOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom right, rgba(59, 130, 246, 0.1), transparent);
+    pointer-events: none;
+}
+
+.logoSection {
+    position: relative;
+    padding: 1rem 1rem;
+    border-bottom: 1px solid rgba(55, 65, 81, 0.5);
+    text-align: center;
+
+    h1 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: white;
+        margin: 0;
+    }
+
+    p {
+        font-size: 0.75rem;
+        color: #9ca3af;
+        margin: 0.25rem 0 0 0;
+    }
+
+    .logoCollapsed {
+        h1 {
+            font-size: 1.125rem;
+        }
+    }
+}
+
+.navigation {
+    flex: 1;
+    padding: 1.5rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    position: relative;
+}
+
+.navItem {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+    transition: all 0.2s ease-in-out;
+    color: #9ca3af;
+    text-decoration: none;
+
+    &:hover {
+        color: white;
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    &.active {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+
+    &.collapsed {
+        justify-content: center;
+    }
+
+    &:focus-visible {
+        outline: 2px solid #3b82f6;
+        outline-offset: 2px;
+    }
+}
+
+.activeIndicator {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0.25rem;
+    height: 2rem;
+    background: linear-gradient(to bottom, #60a5fa, #3b82f6);
+    border-radius: 0 9999px 9999px 0;
+}
+
+.iconContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+
+    &.active {
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+
+    &.inactive {
+        background: rgba(31, 41, 55, 0.5);
+    }
+
+    svg {
+        width: 1.25rem;
+        height: 1.25rem;
+        transition: transform 0.2s;
+    }
+
+    &:hover svg {
+        transform: scale(1.1);
+    }
+}
+
+.navLabel {
+    font-weight: 500;
+    font-size: 0.875rem;
+    transition: all 0.2s;
+}
+
+.hoverEffect {
+    position: absolute;
+    inset: 0;
+    border-radius: 0.75rem;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.05), transparent);
+    opacity: 0;
+    transition: opacity 0.2s;
+
+    .navItem:hover & {
+        opacity: 1;
+    }
+}
+
+.collapseToggle {
+    position: relative;
+    padding: 1rem;
+    border-top: 1px solid rgba(55, 65, 81, 0.5);
+
+    button {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        padding: 1rem 1.25rem;
+        border-radius: 0.75rem;
+        background: rgba(31, 41, 55, 0.5);
+        transition: all 0.2s;
+        color: #9ca3af;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+            background: rgba(55, 65, 81, 0.5);
+            color: white;
+        }
+
+        &:focus-visible {
+            outline: 2px solid #3b82f6;
+            outline-offset: 2px;
+        }
+
+        svg {
+            width: 1.5rem;
+            height: 1.5rem;
+            transition: transform 0.2s;
+        }
+
+        &:hover svg {
+            transform: scale(1.1);
+        }
+
+        span {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+    }
+}

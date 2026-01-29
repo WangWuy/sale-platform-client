@@ -1,0 +1,262 @@
+.page {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.loadingContainer {
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.loadingText {
+    margin-left: 0.5rem;
+    color: #4b5563;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.headerRow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.headerActions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 0.5rem;
+}
+
+.backLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #4b5563;
+    font-weight: 600;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: #111827;
+    }
+}
+
+.divider {
+    width: 1px;
+    height: 1.5rem;
+    background: #d1d5db;
+}
+
+.headerBadge {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.75rem;
+    background: #dbeafe;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2563eb;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+.subtitle {
+    color: #4b5563;
+    margin-top: 0.25rem;
+}
+
+.notice {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.75rem 0.9rem;
+    border-radius: 0.9rem;
+    border: 1px solid transparent;
+    font-size: 0.95rem;
+}
+
+.noticeError {
+    background: #fef2f2;
+    border-color: #fecaca;
+    color: #991b1b;
+}
+
+.buttonSecondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.75rem;
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+    color: #374151;
+    font-weight: 600;
+    transition: background 0.2s ease;
+
+    &:hover {
+        background: #f3f4f6;
+    }
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+}
+
+.buttonDanger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.75rem;
+    border: 1px solid #fecaca;
+    background: #ffffff;
+    color: #dc2626;
+    font-weight: 600;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background: #fef2f2;
+        border-color: #fca5a5;
+    }
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 1rem;
+    padding: 1.25rem;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+.cardTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.infoGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+
+    @media (min-width: 768px) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.infoItem {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+
+    &.fullWidth {
+        @media (min-width: 768px) {
+            grid-column: span 2;
+        }
+    }
+}
+
+.infoLabel {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #6b7280;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.infoValue {
+    font-size: 0.95rem;
+    color: #111827;
+    font-weight: 500;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.badgeAmber {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.badgeEmerald {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.badgeBlue {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.badgePurple {
+    background: #e9d5ff;
+    color: #6b21a8;
+}
+
+.badgePink {
+    background: #fce7f3;
+    color: #9f1239;
+}
+
+.badgeCyan {
+    background: #cffafe;
+    color: #155e75;
+}
+
+.badgeIndigo {
+    background: #e0e7ff;
+    color: #3730a3;
+}
+
+.badgeOrange {
+    background: #fed7aa;
+    color: #9a3412;
+}
+
+.badgeGray {
+    background: #f3f4f6;
+    color: #374151;
+}
+
+.notes {
+    color: #4b5563;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}

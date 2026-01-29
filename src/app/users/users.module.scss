@@ -1,0 +1,438 @@
+.usersPage {
+    display: flex;
+    flex-direction: column;
+    height: 100%; // Changed from 100vh to fit within parent container
+    overflow: hidden;
+    padding: 0; // Removed padding since main already has padding
+    gap: 20px;
+}
+
+// Combined Search + Filters Bar (inside table)
+.searchFiltersBar {
+    flex-shrink: 0;
+    background: white;
+    border-bottom: 1px solid #e5e7eb;
+    border-radius: 16px 16px 0 0;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    animation: fadeIn 0.4s ease;
+}
+
+// Search Wrapper
+.searchWrapper {
+    position: relative;
+    flex: 1;
+    min-width: 200px;
+    max-width: 400px;
+}
+
+.searchIcon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    color: #9ca3af;
+    pointer-events: none;
+}
+
+.searchInput {
+    width: 100%;
+    padding: 10px 12px 10px 40px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    background: #f9fafb;
+
+    &:focus {
+        outline: none;
+        border-color: #3b82f6;
+        background: white;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    &::placeholder {
+        color: #9ca3af;
+    }
+}
+
+// Filter Select
+.filterSelect {
+    padding: 10px 14px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 14px;
+    background: #f9fafb;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 140px;
+
+    &:hover {
+        border-color: #d1d5db;
+        background: white;
+    }
+
+    &:focus {
+        outline: none;
+        border-color: #3b82f6;
+        background: white;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+}
+
+// Clear Filters Button
+.clearFilters {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 14px;
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background: #fee2e2;
+        border-color: #fca5a5;
+        transform: translateY(-1px);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+// Secondary Button (Export/Import)
+.secondaryButton {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: white;
+    color: #4b5563;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background: #f9fafb;
+        border-color: #d1d5db;
+        transform: translateY(-1px);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+// Create Button
+.createButton {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+
+    &:hover {
+        background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+// Bulk Actions
+.bulkToolbar {
+    flex-shrink: 0;
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    border: 1px solid #93c5fd;
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    animation: slideDown 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.bulkCount {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e40af;
+}
+
+.bulkActionActive,
+.bulkActionSuspend,
+.bulkActionDelete,
+.bulkActionCancel {
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    &:hover {
+        transform: translateY(-2px);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+
+    &:focus-visible {
+        outline: 2px solid currentColor;
+        outline-offset: 2px;
+    }
+}
+
+.bulkActionActive {
+    background: #10b981;
+    color: white;
+
+    &:hover {
+        background: #059669;
+        box-shadow: 0 8px 16px -4px rgba(16, 185, 129, 0.4);
+    }
+}
+
+.bulkActionSuspend {
+    background: #f59e0b;
+    color: white;
+
+    &:hover {
+        background: #d97706;
+        box-shadow: 0 8px 16px -4px rgba(245, 158, 11, 0.4);
+    }
+}
+
+.bulkActionDelete {
+    background: #ef4444;
+    color: white;
+
+    &:hover {
+        background: #dc2626;
+        box-shadow: 0 8px 16px -4px rgba(239, 68, 68, 0.4);
+    }
+}
+
+.bulkActionCancel {
+    background: white;
+    color: #374151;
+    border: 1px solid #e5e7eb;
+
+    &:hover {
+        background: #f9fafb;
+    }
+}
+
+// Error Message
+.errorMessage {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: #fee2e2;
+    border: 1px solid #f87171;
+    border-radius: 12px;
+    color: #991b1b;
+    font-size: 14px;
+    animation: shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translateX(-4px);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translateX(4px);
+    }
+}
+
+// Table Wrapper (KEY CHANGE - Makes table scrollable)
+.tableWrapper {
+    flex: 1;
+    min-height: 0; // Critical for flex scrolling
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: white;
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+
+    // Ensure DataTable takes remaining space and scrolls
+    :global(.dataTable) {
+        flex: 1;
+        min-height: 0;
+        overflow: hidden;
+    }
+}
+
+// Pagination
+.pagination {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.paginationInfo {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.paginationButton {
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background: white;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover:not(:disabled) {
+        background: #f9fafb;
+        border-color: #d1d5db;
+        transform: translateY(-1px);
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    &:focus-visible {
+        outline: 2px solid #3b82f6;
+        outline-offset: 2px;
+    }
+}
+
+.paginationButtonActive {
+    background: #3b82f6;
+    color: white;
+    border-color: #3b82f6;
+
+    &:hover {
+        background: #2563eb;
+        border-color: #2563eb;
+    }
+}
+
+// Animations
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+// Responsive
+@media (max-width: 768px) {
+    .usersPage {
+        padding: 16px;
+        height: 100vh;
+    }
+
+    .searchFiltersBar {
+        flex-wrap: wrap;
+    }
+
+    .searchWrapper {
+        flex: 1 1 100%;
+        max-width: none;
+    }
+
+    .bulkToolbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .pagination {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+    }
+}
+
+// Reduced Motion
+@media (prefers-reduced-motion: reduce) {
+
+    .searchFiltersBar,
+    .bulkToolbar,
+    .errorMessage {
+        animation: none;
+    }
+
+    .createButton,
+    .secondaryButton,
+    .bulkActionActive,
+    .bulkActionSuspend,
+    .bulkActionDelete,
+    .bulkActionCancel,
+    .paginationButton,
+    .clearFilters {
+
+        &:hover,
+        &:active {
+            transform: none;
+        }
+    }
+}

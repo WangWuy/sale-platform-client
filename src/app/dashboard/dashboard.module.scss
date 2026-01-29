@@ -1,0 +1,99 @@
+.dashboardWrapper {
+    min-height: 100vh;
+    background-color: #f8fafc; // slate-50
+    display: flex;
+
+    :global(.dark) & {
+        background-color: #0f172a; // slate-900
+    }
+
+    .sidebar {
+        position: fixed;
+        inset-y: 0;
+        left: 0;
+        z-index: 50;
+        width: 18rem; // 72
+        background-color: white;
+        border-right: 1px solid #e2e8f0; // slate-200
+        transition: transform 0.3s;
+
+        :global(.dark) & {
+            background-color: #1e293b; // slate-800
+            border-right-color: #334155; // slate-700
+        }
+
+        &.collapsed {
+            transform: translateX(-100%);
+        }
+
+        @media (min-width: 1024px) {
+            position: static;
+            transform: none !important;
+        }
+    }
+
+    .mainContent {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        overflow-x: hidden;
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 30;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #e2e8f0;
+
+            :global(.dark) & {
+                background-color: rgba(30, 41, 59, 0.8);
+                border-bottom-color: #334155;
+            }
+        }
+
+        main {
+            flex: 1;
+            padding: 1.5rem;
+        }
+    }
+
+    .overlay {
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 40;
+
+        @media (min-width: 1024px) {
+            display: none;
+        }
+    }
+}
+
+// Stats Grid Styles
+.statsGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+
+    @media (min-width: 640px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1024px) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+// Content Grid (Quick Actions & Activity)
+.contentGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+
+    @media (min-width: 1024px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

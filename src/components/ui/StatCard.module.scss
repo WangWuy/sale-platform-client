@@ -1,0 +1,147 @@
+.statCard {
+    background: linear-gradient(to bottom right, var(--from), var(--to));
+    border-radius: 1rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.clickable {
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+
+    &:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+}
+
+.iconWrapper {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--icon);
+    flex-shrink: 0;
+}
+
+.icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: white;
+}
+
+.statInfo {
+    min-width: 0;
+}
+
+.statLabel {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--label);
+}
+
+.statValue {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--value);
+    margin-top: 0.25rem;
+}
+
+.statChange {
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-top: 0.5rem;
+}
+
+.statSubtitle {
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin-top: 0.25rem;
+}
+
+.blue {
+    --from: #eff6ff;
+    --to: #dbeafe;
+    --border: #bfdbfe;
+    --icon: #3b82f6;
+    --label: #2563eb;
+    --value: #1e3a8a;
+}
+
+.green {
+    --from: #f0fdf4;
+    --to: #dcfce7;
+    --border: #bbf7d0;
+    --icon: #22c55e;
+    --label: #16a34a;
+    --value: #14532d;
+}
+
+.purple {
+    --from: #f5f3ff;
+    --to: #ede9fe;
+    --border: #ddd6fe;
+    --icon: #8b5cf6;
+    --label: #7c3aed;
+    --value: #4c1d95;
+}
+
+.orange {
+    --from: #fff7ed;
+    --to: #ffedd5;
+    --border: #fed7aa;
+    --icon: #f97316;
+    --label: #ea580c;
+    --value: #7c2d12;
+}
+
+.red {
+    --from: #fef2f2;
+    --to: #fee2e2;
+    --border: #fecaca;
+    --icon: #ef4444;
+    --label: #dc2626;
+    --value: #7f1d1d;
+}
+
+.cyan {
+    --from: #ecfeff;
+    --to: #cffafe;
+    --border: #a5f3fc;
+    --icon: #06b6d4;
+    --label: #0891b2;
+    --value: #164e63;
+}
+
+.amber {
+    --from: #fffbeb;
+    --to: #fef3c7;
+    --border: #fde68a;
+    --icon: #f59e0b;
+    --label: #d97706;
+    --value: #78350f;
+}
+
+.pink {
+    --from: #fdf2f8;
+    --to: #fce7f3;
+    --border: #fbcfe8;
+    --icon: #ec4899;
+    --label: #db2777;
+    --value: #831843;
+}
+
+.emerald {
+    --from: #ecfdf5;
+    --to: #d1fae5;
+    --border: #a7f3d0;
+    --icon: #10b981;
+    --label: #059669;
+    --value: #064e3b;
+}

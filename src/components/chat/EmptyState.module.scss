@@ -1,0 +1,48 @@
+.emptyStateContainer {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.emptyStateContent {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.iconWrapper {
+    width: 6rem !important;
+    height: 6rem !important;
+    margin: 0 auto 1.5rem !important;
+    background: #eff6ff;
+    border-radius: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+        width: 3rem !important;
+        height: 3rem !important;
+        color: #2563eb;
+    }
+}
+
+.title {
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    color: #111827 !important;
+    margin: 0 auto 0.5rem !important;
+    text-align: center;
+}
+
+.description {
+    color: #6b7280 !important;
+    max-width: 20rem !important;
+    margin: 0 auto !important;
+    text-align: center;
+    line-height: 1.5;
+}

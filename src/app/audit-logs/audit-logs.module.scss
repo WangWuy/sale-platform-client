@@ -1,0 +1,261 @@
+.auditLogsPage {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    padding: 0;
+    gap: 20px;
+}
+
+// Combined Search + Filters Bar
+.searchFiltersBar {
+    flex-shrink: 0;
+    background: white;
+    border-bottom: 1px solid #e5e7eb;
+    border-radius: 16px 16px 0 0;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    animation: fadeIn 0.4s ease;
+}
+
+// Filter Select & Input
+.filterSelect,
+.filterInput {
+    padding: 10px 14px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 14px;
+    background: #f9fafb;
+    transition: all 0.2s ease;
+    min-width: 140px;
+
+    &:hover {
+        border-color: #d1d5db;
+        background: white;
+    }
+
+    &:focus {
+        outline: none;
+        border-color: #64748b;
+        background: white;
+        box-shadow: 0 0 0 3px rgba(100, 116, 139, 0.1);
+    }
+}
+
+.filterSelect {
+    cursor: pointer;
+}
+
+.filterInput {
+    width: 200px;
+    font-family: monospace;
+}
+
+// Clear Filters Button
+.clearFilters {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 14px;
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background: #fee2e2;
+        border-color: #fca5a5;
+        transform: translateY(-1px);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+// Error Message
+.errorMessage {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: #fee2e2;
+    border: 1px solid #f87171;
+    border-radius: 12px;
+    color: #991b1b;
+    font-size: 14px;
+    animation: shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translateX(-4px);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translateX(4px);
+    }
+}
+
+// Table Wrapper
+.tableWrapper {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: white;
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+
+    :global(.dataTable) {
+        flex: 1;
+        min-height: 0;
+        overflow: hidden;
+    }
+}
+
+// Pagination
+.pagination {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.paginationInfo {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.paginationButton {
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background: white;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover:not(:disabled) {
+        background: #f9fafb;
+        border-color: #d1d5db;
+        transform: translateY(-1px);
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    &:focus-visible {
+        outline: 2px solid #64748b;
+        outline-offset: 2px;
+    }
+}
+
+.paginationButtonActive {
+    background: #64748b;
+    color: white;
+    border-color: #64748b;
+
+    &:hover {
+        background: #475569;
+        border-color: #475569;
+    }
+}
+
+// JSON Viewer
+.jsonViewer {
+    background: #1e293b;
+    border-radius: 8px;
+    padding: 12px;
+    max-height: 200px;
+    overflow: auto;
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: 12px;
+    color: #94a3b8;
+    margin-top: 8px;
+
+    pre {
+        margin: 0;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
+}
+
+// Animations
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+// Responsive
+@media (max-width: 768px) {
+    .auditLogsPage {
+        padding: 16px;
+        height: 100vh;
+    }
+
+    .searchFiltersBar {
+        flex-wrap: wrap;
+    }
+
+    .filterInput {
+        width: 100%;
+    }
+
+    .pagination {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+    }
+}
+
+// Reduced Motion
+@media (prefers-reduced-motion: reduce) {
+
+    .searchFiltersBar,
+    .errorMessage {
+        animation: none;
+    }
+
+    .paginationButton,
+    .clearFilters {
+
+        &:hover,
+        &:active {
+            transform: none;
+        }
+    }
+}

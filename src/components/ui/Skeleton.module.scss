@@ -1,0 +1,118 @@
+.skeleton {
+    background: linear-gradient(90deg,
+            #f0f0f0 25%,
+            #e0e0e0 50%,
+            #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 4px;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+.text {
+    height: 1em;
+    border-radius: 4px;
+}
+
+.circular {
+    border-radius: 50%;
+}
+
+.rectangular {
+    border-radius: 8px;
+}
+
+// Stat Card Skeleton
+.statCard {
+    padding: 24px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.statHeader {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.mt8 {
+    margin-top: 8px;
+}
+
+// Table Skeleton
+.table {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.tableHeader {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 16px;
+}
+
+.tableRow {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid #f3f4f6;
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+// Dark mode support
+@media (prefers-color-scheme: dark) {
+    .skeleton {
+        background: linear-gradient(90deg,
+                #2a2a2a 25%,
+                #3a3a3a 50%,
+                #2a2a2a 75%);
+    }
+
+    .statCard,
+    .table {
+        background: #1f2937;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+    }
+
+    .tableHeader {
+        border-bottom-color: #374151;
+    }
+
+    .tableRow {
+        border-bottom-color: #374151;
+    }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+    .skeleton {
+        animation: none;
+        background: #e0e0e0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .skeleton {
+            background: #2a2a2a;
+        }
+    }
+}

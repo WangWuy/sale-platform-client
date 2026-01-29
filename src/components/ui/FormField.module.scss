@@ -1,0 +1,29 @@
+.field {
+    margin-bottom: 1.5rem;
+}
+
+.label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.5rem;
+}
+
+.required {
+    color: #ef4444;
+    margin-left: 0.25rem;
+}
+
+.helpText {
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    color: #6b7280;
+}
+
+.errorText {
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    color: #dc2626;
+    font-weight: 500;
+}
